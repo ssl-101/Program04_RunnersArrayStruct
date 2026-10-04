@@ -2,22 +2,25 @@
 #define RUNNERS_H
 
 #include <string>
-
-//constants
-const int NUM_RUNNERS = 5;
-const int DAYS_OF_WEEK = 7;
+// structure instead of constants.
+struct Runners {
+     std::string name;
+     double miles[7];
+     double total;
+     double average;
+};
 
 //functions
 bool readFile(const std::string& filename, 
-     std::string names[], 
-     double miles[][DAYS_OF_WEEK]);
-void calculateTotals(const double miles[][DAYS_OF_WEEK], 
-     double totals[],
-     double averages[]);
-void displayResults(const std::string names[],
-     const double miles[][DAYS_OF_WEEK],
-     const double totals[],
-     const double averages[]);
+     Runner runners[],
+     int numRunners,
+     int Days_Of_Week);
+void calculateTotals(Runner runners[],
+     int numRunners,
+     int Days_Of_Week);
+void displayResults(const Runner runner[],
+     int numRunners,
+     int Days_Of_Week);
 
  #endif                   
     
