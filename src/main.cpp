@@ -1,21 +1,25 @@
 #include <iostream>
 #include "Runners.h"
 
+
+
 using namespace std;
 
 int main() {
-    string names[NUM_RUNNERS];
-    double miles[NUM_RUNNERS][DAYS_OF_WEEK];
-    double totals[NUM_RUNNERS];
-    double averages[NUM_RUNNERS];
+    const int NUM_RUNNERS = 5;
+    const int DAYS_OF_WEEK = 7;
+    
+    //array
+    Runner runners[NUM_RUNNERS];
+    string filename = "runners.txt";
 
-    if(readFile( "runners.txt", names, miles)){
-        calculateTotals(miles, totals, averages);
-        displayResults(names, miles, totals, averages);
-    } else {
-        cout << "Error: Could not open file 'runners.txt'." << endl;
+    if (!readFile (filename, runners,NUM_RUNNERS, DAYS_OF_WEEK)) {
+        cerr << "Error: Could not open file ' " <<filename << " '." << endl;
         return 1;
-    }
+       }
+       calculateTotals (runners, NUM_RUNNERS, DAYS_OF_WEEK);
+       displayResults(runners, NUM_RUNNERS, DAYS_OF_WEEK);
 
-    return 0;
+       return 0;
 }
+

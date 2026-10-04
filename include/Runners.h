@@ -3,7 +3,7 @@
 
 #include <string>
 // structure instead of constants.
-struct Runners {
+struct Runner{
      std::string name;
      double miles[7];
      double total;
@@ -18,7 +18,7 @@ bool readFile(const std::string& filename,
 void calculateTotals(Runner runners[],
      int numRunners,
      int days_of_week);
-void displayResults(const Runner runner[],
+void displayResults(const Runner runners[],
      int numRunners,
      int days_of_week);
 

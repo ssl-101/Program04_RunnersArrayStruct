@@ -5,23 +5,15 @@
 
 using namespace std;
 
-// added runner struct
-struct Runner {
-    string name;
-    double miles[7];
-    double total;
-    double average;
-};
-
 // Reading file
 
-bool readFile(const string& filename, Runner runners[], int numRunners[], int days_of_week){
+bool readFile(const string& filename, Runner runners[], int numRunners, int days_of_week){
     ifstream inFile(filename);
     if (!inFile){
         return false;
     }
 
-    for(int row = 0; row < numRunners; ++row){
+    for (int row = 0; row < numRunners; ++row){
         inFile >> runners[row].name;
         for (int col = 0; col < days_of_week; ++col){
             inFile >> runners[row].miles[col];
