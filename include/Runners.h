@@ -14,13 +14,13 @@ struct Runners {
 bool readFile(const std::string& filename, 
      Runner runners[],
      int numRunners,
-     int Days_Of_Week);
+     int days_of_week);
 void calculateTotals(Runner runners[],
      int numRunners,
-     int Days_Of_Week);
+     int days_of_week);
 void displayResults(const Runner runner[],
      int numRunners,
-     int Days_Of_Week);
+     int days_of_week);
 
  #endif                   
     
