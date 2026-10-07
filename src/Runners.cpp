@@ -7,17 +7,17 @@ using namespace std;
 
 // Reading file
 
-bool readFile(const string& filename, Runner runners[], int numRunners, int days_of_week){
+bool readFile(const string& filename, Runner runners[], int& numRunners, int days_of_week){
     ifstream inFile(filename);
     if (!inFile){
         return false;
     }
 
-    for (int row = 0; row < numRunners; ++row){
-        inFile >> runners[row].name;
+    while (numRunners< 50 && inFile >> runners[numRunners].name){
         for (int col = 0; col < days_of_week; ++col){
-            inFile >> runners[row].miles[col];
+            inFile >> runners[numRunners].miles[col];
         }
+        numRunners++;
     }
     inFile.close();
     return true;
@@ -33,7 +33,7 @@ void calculateTotals(Runner runners[], int numRunners, int days_of_week){
         runners[row].average = sum / days_of_week;
 
      }
-}
+} 
 //Data display
 void displayResults(const Runner runners[], int numRunners, int days_of_week){
 

@@ -6,16 +6,13 @@
 using namespace std;
 
 int main() {
-    const int NUM_RUNNERS = 5;
-    const int DAYS_OF_WEEK = 7;
+    Runner runners[50];
+     int NUM_RUNNERS = 0;
+     int DAYS_OF_WEEK = 7;
     
-    //array
-    Runner runners[NUM_RUNNERS];
-    string filename = "runners.txt";
 
-    if (!readFile (filename, runners,NUM_RUNNERS, DAYS_OF_WEEK)) {
-        cerr << "Error: Could not open file ' " <<filename << " '." << endl;
-        return 1;
+    if (!readFile ("runners.txt", runners, NUM_RUNNERS, DAYS_OF_WEEK)) {
+        cout<< "Error: Could not open file!\n";
        }
        calculateTotals (runners, NUM_RUNNERS, DAYS_OF_WEEK);
        displayResults(runners, NUM_RUNNERS, DAYS_OF_WEEK);
